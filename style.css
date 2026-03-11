@@ -122,6 +122,57 @@ body {
 }
 .hover-invert { transition: filter 0.3s ease, transform 0.3s ease; }
 .hover-invert:hover { filter: saturate(1.5) brightness(1.1); cursor: crosshair; }
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Dark semi-transparent background */
+    display: flex; justify-content: center; align-items: center;
+    z-index: 100;
+    opacity: 0; pointer-events: none; /* Hidden by default */
+    transition: opacity 0.3s ease;
+}
+.modal-overlay.active {
+    opacity: 1; pointer-events: all;
+}
+.modal-content {
+    background-color: var(--color-white);
+    border: var(--border-width) solid var(--color-black);
+    padding: 3rem;
+    max-width: 800px; width: 90%; max-height: 90vh;
+    overflow-y: auto; position: relative;
+    box-shadow: 12px 12px 0px var(--color-black);
+    transform: translateY(30px) scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+}
+.modal-content h2 {
+    font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--color-black);
+    text-transform: uppercase; margin-top: 0; margin-bottom: 2rem;
+    text-align: center; /* Centered the "About Me" text per user request */
+    line-height: 1; border-bottom: var(--border-width) solid var(--color-black);
+    padding-bottom: 1rem; letter-spacing: -1px;
+}
+.modal-content p {
+    font-family: 'Inter', sans-serif; font-size: 1.1rem; line-height: 1.6;
+    margin-bottom: 1.5rem; color: #333; font-weight: 500;
+}
+.modal-content p:last-child { margin-bottom: 0; }
+.close-btn {
+    position: absolute; top: -var(--border-width); right: -var(--border-width);
+    background-color: var(--color-red); color: var(--color-white);
+    border: var(--border-width) solid var(--color-black);
+    width: 60px; height: 60px; font-family: 'Oswald', sans-serif;
+    font-size: 1.6rem; font-weight: bold; cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    display: flex; justify-content: center; align-items: center;
+}
+.close-btn:hover {
+    transform: scale(1.1);
+    background-color: #ff3333;
+}
 /* -------------------------------------------
    RESPONSIVE DESIGN ADAPTATIONS 
 ------------------------------------------- */
@@ -157,6 +208,12 @@ body {
     
     .menu-box { padding: 1.5rem; }
     .menu-box li a.menu-link { font-size: 2rem; line-height: 1.2; }
+    
+    /* Modal responsive */
+    .modal-content { padding: 1.5rem; }
+    .modal-content h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+    .modal-content p { font-size: 1rem; }
+    .close-btn { width: 45px; height: 45px; font-size: 1.2rem; }
 }
 
 /* Tablet & Laptop Horizontal (Desktop Default) */

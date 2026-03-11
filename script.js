@@ -20,4 +20,30 @@ document.addEventListener('DOMContentLoaded', () => {
             box.style.zIndex = '1';
         });
     });
+
+    // ABOUT Modal Logic
+    const aboutBtn = document.getElementById('about-btn');
+    const modalOverlay = document.getElementById('about-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+
+    if (aboutBtn && modalOverlay && closeModalBtn) {
+        aboutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // prevent background scrolling
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // restore scrolling
+        });
+
+        // Close on background click
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = ''; 
+            }
+        });
+    }
 });
