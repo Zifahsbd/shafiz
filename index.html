@@ -32,12 +32,9 @@
             </div>
             <div class="box bg-memphis m-right hover-invert"></div>
             <div class="box section-black b-right hover-invert"></div>
-            <nav class="box section-yellow menu-box">
+            <nav class="box menu-box">
                 <ul>
                     <li><a href="#about" class="menu-link" id="about-btn">ABOUT</a></li>
-                    <li><a href="#resume" class="menu-link">RESUME</a></li>
-                    <li><a href="#portfolio" class="menu-link">PORTFOLIO</a></li>
-                    <li><a href="#blog" class="menu-link">BLOG</a></li>
                     <li><a href="#contact" class="menu-link">CONTACT</a></li>
                 </ul>
             </nav>
@@ -48,13 +45,28 @@
     <div id="about-modal" class="modal-overlay">
         <div class="modal-content">
             <button id="close-modal" class="close-btn" aria-label="Close modal">X</button>
-            <h2>About Me</h2>
-            <p>Hello I'm <strong>Sayed Shafiz</strong> a technology enthusiast with a strong interest in artificial intelligence, prompt engineering, and digital innovation. I enjoy exploring how modern AI tools can be used to create powerful ideas, generate visual content, and build creative digital experiences.</p>
-            <p>My work often focuses on experimenting with AI-driven tools for image, video, and prompt generation. I like studying how prompts influence AI outputs and developing better ways to communicate ideas through technology. Learning new systems and understanding how digital tools work is something that motivates me every day.</p>
-            <p>I believe the future belongs to people who can combine creativity with technology. That’s why I continuously explore new technologies, test new tools, and improve my skills in AI-assisted content creation and digital workflows.</p>
-            <p>Through my projects and experiments, I aim to discover innovative ways to turn ideas into reality. My goal is to build useful tools, create engaging digital content, and contribute to the growing world of AI and modern technology.</p>
-            <p>When I’m not experimenting with AI or learning about new technologies, I enjoy researching trends, exploring creative concepts, and finding inspiration from the fast-moving digital world.</p>
-            <p>I’m always open to learning, collaborating, and discovering new opportunities in the world of technology.</p>
+            <div class="modal-header-container">
+                <h2 id="about-title">About Me</h2>
+                <button id="lang-toggle" class="lang-toggle-btn">Bangla</button>
+            </div>
+            
+            <div id="about-en">
+                <p>Hello I'm <strong>Sayed Shafiz</strong> a technology enthusiast with a strong interest in artificial intelligence, prompt engineering, and digital innovation. I enjoy exploring how modern AI tools can be used to create powerful ideas, generate visual content, and build creative digital experiences.</p>
+                <p>My work often focuses on experimenting with AI-driven tools for image, video, and prompt generation. I like studying how prompts influence AI outputs and developing better ways to communicate ideas through technology. Learning new systems and understanding how digital tools work is something that motivates me every day.</p>
+                <p>I believe the future belongs to people who can combine creativity with technology. That’s why I continuously explore new technologies, test new tools, and improve my skills in AI-assisted content creation and digital workflows.</p>
+                <p>Through my projects and experiments, I aim to discover innovative ways to turn ideas into reality. My goal is to build useful tools, create engaging digital content, and contribute to the growing world of AI and modern technology.</p>
+                <p>When I’m not experimenting with AI or learning about new technologies, I enjoy researching trends, exploring creative concepts, and finding inspiration from the fast-moving digital world.</p>
+                <p>I’m always open to learning, collaborating, and discovering new opportunities in the world of technology.</p>
+            </div>
+
+            <div id="about-bn" style="display: none;">
+                <p>হ্যালো! আমি <strong>সাইয়েদ শাফিজ</strong>। আমি প্রযুক্তিপ্রেমী একজন মানুষ এবং কৃত্রিম বুদ্ধিমত্তা (AI), প্রম্পট ইঞ্জিনিয়ারিং এবং ডিজিটাল উদ্ভাবনের প্রতি আমার গভীর আগ্রহ রয়েছে। আধুনিক AI টুল ব্যবহার করে নতুন ধারণা তৈরি করা, ছবি ও ভিডিওর জন্য ক্রিয়েটিভ প্রম্পট তৈরি করা এবং ডিজিটাল কনটেন্ট নিয়ে কাজ করতে আমি খুব পছন্দ করি।</p>
+                <p>আমি নিয়মিত নতুন প্রযুক্তি সম্পর্কে শিখতে এবং বিভিন্ন AI টুল নিয়ে পরীক্ষা-নিরীক্ষা করতে আগ্রহী। বিশেষ করে কীভাবে সঠিক প্রম্পট ব্যবহার করে AI থেকে ভালো ফলাফল পাওয়া যায়, তা নিয়ে আমি কাজ করতে ভালোবাসি। নতুন সিস্টেম বোঝা এবং প্রযুক্তির মাধ্যমে সৃজনশীল কাজ তৈরি করা আমার জন্য একটি বড় অনুপ্রেরণা।</p>
+                <p>আমি বিশ্বাস করি, প্রযুক্তি মানুষের সৃজনশীলতা এবং উদ্ভাবনকে আরও শক্তিশালী করে তোলে। তাই আমি সবসময় নতুন টুল, নতুন ধারণা এবং আধুনিক ডিজিটাল প্রযুক্তি সম্পর্কে শিখতে চেষ্টা করি।</p>
+                <p>আমার লক্ষ্য হলো প্রযুক্তি ব্যবহার করে নতুন কিছু তৈরি করা, কার্যকরী ডিজিটাল প্রজেক্ট তৈরি করা এবং AI ও প্রযুক্তির ক্রমবর্ধমান জগতে অবদান রাখা।</p>
+                <p>AI নিয়ে কাজ করা বা নতুন প্রযুক্তি শেখার বাইরে, আমি নতুন ট্রেন্ড সম্পর্কে জানতে, গবেষণা করতে এবং সৃজনশীল ধারণা খুঁজে বের করতে পছন্দ করি।</p>
+                <p>আমি সবসময় শেখার জন্য প্রস্তুত এবং প্রযুক্তির জগতে নতুন সুযোগ ও সহযোগিতার জন্য উন্মুক্ত।</p>
+            </div>
         </div>
     </div>
     

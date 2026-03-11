@@ -25,25 +25,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const aboutBtn = document.getElementById('about-btn');
     const modalOverlay = document.getElementById('about-modal');
     const closeModalBtn = document.getElementById('close-modal');
+    const langToggleBtn = document.getElementById('lang-toggle');
+    const aboutEn = document.getElementById('about-en');
+    const aboutBn = document.getElementById('about-bn');
+    const aboutTitle = document.getElementById('about-title');
 
     if (aboutBtn && modalOverlay && closeModalBtn) {
         aboutBtn.addEventListener('click', (e) => {
             e.preventDefault();
             modalOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // prevent background scrolling
+            document.body.style.overflow = 'hidden'; 
         });
 
         closeModalBtn.addEventListener('click', () => {
             modalOverlay.classList.remove('active');
-            document.body.style.overflow = ''; // restore scrolling
+            document.body.style.overflow = ''; 
         });
 
-        // Close on background click
         modalOverlay.addEventListener('click', (e) => {
             if (e.target === modalOverlay) {
                 modalOverlay.classList.remove('active');
                 document.body.style.overflow = ''; 
             }
         });
+        
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', () => {
+                if (aboutEn.style.display === 'none') {
+                    // Switch to English
+                    aboutEn.style.display = 'block';
+                    aboutBn.style.display = 'none';
+                    aboutTitle.textContent = 'About Me';
+                    langToggleBtn.textContent = 'Bangla';
+                } else {
+                    // Switch to Bangla
+                    aboutEn.style.display = 'none';
+                    aboutBn.style.display = 'block';
+                    aboutTitle.textContent = 'আমার সম্পর্কে';
+                    langToggleBtn.textContent = 'English';
+                }
+            });
+        }
     }
 });
