@@ -1,7 +1,8 @@
 :root {
-    --color-yellow: #FFCF00;
-    --color-red: #E62828;
-    --color-blue: #1C54D4;
+    --color-yellow: #F375C2;  /* Light Pink */
+    --color-red: #B153D7;     /* Purple Pink */
+    --color-blue: #4D2FB2;    /* Deep Purple */
+    --color-navy: #0E21A0;    /* Space Navy */
     --color-white: #FFFFFF;
     --color-black: #000000;
     --border-width: 8px;
@@ -10,7 +11,9 @@
 body {
     margin: 0; padding: 0;
     font-family: 'Inter', sans-serif;
-    background-color: #222;
+    background: linear-gradient(135deg, #0E21A0 0%, #4D2FB2 50%, #111111 100%);
+    background-color: var(--color-navy);
+    background-attachment: fixed;
     display: flex; justify-content: center; align-items: center;
     min-height: 100vh;
 }
@@ -37,7 +40,7 @@ body {
 .section-yellow { background-color: var(--color-yellow); }
 .section-red { background-color: var(--color-red); }
 .section-blue { background-color: var(--color-blue); }
-.section-black { background-color: var(--color-black); }
+.section-black { background-color: var(--color-navy); }
 .section-white { background-color: var(--color-white); }
 .bg-white { background-color: var(--color-white); }
 .bg-memphis {
@@ -84,8 +87,8 @@ body {
     justify-content: left;
 }
 .header-content h1 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 3rem; font-weight: 700; margin: 0; line-height: 1; text-transform: uppercase;
+    font-family: 'Saira Stencil One', sans-serif;
+    font-size: 3rem; font-weight: 400; font-style: normal; margin: 0; line-height: 1; text-transform: uppercase;
     letter-spacing: -1px;
     color: var(--color-black);
 }
@@ -117,8 +120,8 @@ body {
 .menu-box li:nth-child(4) { background-color: var(--color-red); }
 .menu-box li:nth-child(5) { background-color: var(--color-blue); }
 .menu-box li a.menu-link {
-    text-decoration: none; color: var(--color-black);
-    font-family: 'Oswald', sans-serif; font-size: 3rem; font-weight: 700;
+    text-decoration: none; color: var(--color-white);
+    font-family: 'Saira Stencil One', sans-serif; font-size: 3rem; font-weight: 400; font-style: normal;
     line-height: 1; text-transform: uppercase; transition: all 0.2s ease;
     display: flex; align-items: center; justify-content: center;
     width: 100%; padding: 2rem 0;
@@ -164,7 +167,7 @@ body {
     align-items: center;
 }
 .modal-header-container h2 {
-    font-family: 'Oswald', sans-serif; font-size: 3rem; color: var(--color-black);
+    font-family: 'Saira Stencil One', sans-serif; font-size: 3rem; color: var(--color-black); font-weight: 400; font-style: normal;
     text-transform: uppercase; margin: 0;
     text-align: center;
     line-height: 1; letter-spacing: -1px;
@@ -199,8 +202,8 @@ body {
     border: none;
     border-right: var(--border-width) solid var(--color-black);
     border-bottom: var(--border-width) solid var(--color-black);
-    width: 60px; height: 60px; font-family: 'Oswald', sans-serif;
-    font-size: 1.6rem; font-weight: bold; cursor: pointer;
+    width: 60px; height: 60px; font-family: 'Saira Stencil One', sans-serif;
+    font-size: 1.6rem; font-weight: 400; font-style: normal; cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease;
     display: flex; justify-content: center; align-items: center;
     z-index: 50; /* Ensure it stays above scrolling text */
