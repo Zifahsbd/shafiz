@@ -104,41 +104,33 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('contact-email').value;
             const message = document.getElementById('contact-message').value;
 
-            // Telegram API Configuration
-            const botToken = '8727387784:AAFYhbbvkqhUofYpKkoLBJhxiB-QUs9Okjg'; 
-            const chatId = '1679944695'; 
-            
-            if (!chatId || chatId === 'YOUR_TELEGRAM_CHAT_ID') {
-                contactStatus.textContent = 'Setup Required: Please add your Telegram Chat ID in script.js (Line 109)';
-                contactStatus.className = 'contact-status status-error';
-                return;
-            }
-
-            const text = `📬 *New Message from Portfolio!*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:*\n${message}`;
-            
             if (contactSubmit) {
                 contactSubmit.textContent = 'SENDING...';
                 contactSubmit.disabled = true;
             }
 
             try {
-                const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                // Send to Gmail via FormSubmit.co
+                const emailResponse = await fetch(`https://formsubmit.co/ajax/trickgro@gmail.com`, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                        chat_id: chatId, 
-                        text: text,
-                        parse_mode: 'Markdown'
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        message: message,
+                        _subject: `New Portfolio Message from ${name}!`
                     })
                 });
 
-                if (response.ok) {
-                    contactStatus.textContent = 'Message sent successfully!';
+                if (emailResponse.ok) {
+                    contactStatus.textContent = 'Message sent directly to my Gmail!';
                     contactStatus.className = 'contact-status status-success';
                     contactForm.reset();
                 } else {
-                    const data = await response.json();
-                    contactStatus.textContent = 'Failed to send: ' + (data.description || 'Unknown error');
+                    contactStatus.textContent = 'Failed to send message.';
                     contactStatus.className = 'contact-status status-error';
                 }
             } catch (error) {
