@@ -68,6 +68,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // AI Tools Modal Logic
+    const aiToolsBtn = document.getElementById('ai-tools-btn');
+    const aiToolsModal = document.getElementById('ai-tools-modal');
+    const closeAiToolsBtn = document.getElementById('close-ai-tools');
+
+    if (aiToolsBtn && aiToolsModal && closeAiToolsBtn) {
+        aiToolsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            aiToolsModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        });
+
+        closeAiToolsBtn.addEventListener('click', () => {
+            aiToolsModal.classList.remove('active');
+            document.body.style.overflow = ''; 
+        });
+
+        aiToolsModal.addEventListener('click', (e) => {
+            if (e.target === aiToolsModal) {
+                aiToolsModal.classList.remove('active');
+                document.body.style.overflow = ''; 
+            }
+        });
+    }
+
     // CONTACT Modal Logic
     const contactBtn = document.getElementById('contact-btn');
     const contactModal = document.getElementById('contact-modal');
