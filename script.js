@@ -67,4 +67,89 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // CONTACT Modal Logic
+    const contactBtn = document.getElementById('contact-btn');
+    const contactModal = document.getElementById('contact-modal');
+    const closeContactBtn = document.getElementById('close-contact');
+    const contactForm = document.getElementById('contact-form');
+    const contactSubmit = document.getElementById('contact-submit');
+    const contactStatus = document.getElementById('contact-status');
+
+    if (contactBtn && contactModal && closeContactBtn) {
+        contactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            contactModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        });
+
+        closeContactBtn.addEventListener('click', () => {
+            contactModal.classList.remove('active');
+            document.body.style.overflow = ''; 
+        });
+
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                contactModal.classList.remove('active');
+                document.body.style.overflow = ''; 
+            }
+        });
+    }
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const message = document.getElementById('contact-message').value;
+
+            // Telegram API Configuration
+            const botToken = '8727387784:AAFYhbbvkqhUofYpKkoLBJhxiB-QUs9Okjg'; 
+            const chatId = '1679944695'; 
+            
+            if (!chatId || chatId === 'YOUR_TELEGRAM_CHAT_ID') {
+                contactStatus.textContent = 'Setup Required: Please add your Telegram Chat ID in script.js (Line 109)';
+                contactStatus.className = 'contact-status status-error';
+                return;
+            }
+
+            const text = `📬 *New Message from Portfolio!*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:*\n${message}`;
+            
+            if (contactSubmit) {
+                contactSubmit.textContent = 'SENDING...';
+                contactSubmit.disabled = true;
+            }
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        chat_id: chatId, 
+                        text: text,
+                        parse_mode: 'Markdown'
+                    })
+                });
+
+                if (response.ok) {
+                    contactStatus.textContent = 'Message sent successfully!';
+                    contactStatus.className = 'contact-status status-success';
+                    contactForm.reset();
+                } else {
+                    const data = await response.json();
+                    contactStatus.textContent = 'Failed to send: ' + (data.description || 'Unknown error');
+                    contactStatus.className = 'contact-status status-error';
+                }
+            } catch (error) {
+                contactStatus.textContent = 'Network error. Please try again later.';
+                contactStatus.className = 'contact-status status-error';
+            } finally {
+                if (contactSubmit) {
+                    contactSubmit.textContent = 'SEND MESSAGE';
+                    contactSubmit.disabled = false;
+                }
+            }
+        });
+    }
 });

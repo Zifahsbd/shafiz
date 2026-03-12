@@ -42,7 +42,7 @@
             <nav class="box menu-box">
                 <ul>
                     <li><a href="#about" class="menu-link" id="about-btn">ABOUT</a></li>
-                    <li><a href="#contact" class="menu-link">CONTACT</a></li>
+                    <li><a href="#contact" class="menu-link" id="contact-btn">CONTACT</a></li>
                 </ul>
             </nav>
             <div class="box section-blue blue hover-invert"></div>
@@ -74,6 +74,33 @@
                 <p>AI নিয়ে কাজ করা বা নতুন প্রযুক্তি শেখার বাইরে, আমি নতুন ট্রেন্ড সম্পর্কে জানতে, গবেষণা করতে এবং সৃজনশীল ধারণা খুঁজে বের করতে পছন্দ করি।</p>
                 <p>আমি সবসময় শেখার জন্য প্রস্তুত এবং প্রযুক্তির জগতে নতুন সুযোগ ও সহযোগিতার জন্য উন্মুক্ত।</p>
             </div>
+        </div>
+    </div>
+    
+    <!-- Contact Pop-up Modal -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-contact" class="close-btn" aria-label="Close modal">X</button>
+            <div class="modal-header-container">
+                <h2 id="contact-title">Contact Me</h2>
+            </div>
+            
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="contact-name">Name</label>
+                    <input type="text" id="contact-name" name="name" required placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="contact-email">Email</label>
+                    <input type="email" id="contact-email" name="email" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="contact-message">Message</label>
+                    <textarea id="contact-message" name="message" rows="5" required placeholder="How can I help you?"></textarea>
+                </div>
+                <button type="submit" id="contact-submit" class="submit-btn">SEND MESSAGE</button>
+                <div id="contact-status" class="contact-status"></div>
+            </form>
         </div>
     </div>
     
