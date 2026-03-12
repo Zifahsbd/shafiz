@@ -21,7 +21,7 @@ body {
 .mondrian-grid {
     display: grid;
     grid-template-columns: minmax(0, 15%) auto minmax(0, 20%);
-    grid-template-rows: 200px 140px 140px minmax(130px, auto) auto;
+    grid-template-rows: 200px 140px 140px auto auto;
     grid-template-areas:
         "m-top  m-top  m-top"
         "m-left photo  m-right"
@@ -101,7 +101,7 @@ body {
     transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .photo-container:hover img, .photo-container:hover video { transform: scale(1.08); }
-.quote-container { display: flex; align-items: center; justify-content: center; padding: 2rem; }
+.quote-container { display: flex; align-items: center; justify-content: center; padding: 0; }
 .quote-inner { max-width: 90%; }
 .quote-text {
     font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 500;
@@ -286,7 +286,7 @@ body {
     .header-content h1 { font-size: 2.2rem; letter-spacing: -1px; }
     .header-content p { font-size: 1rem; margin-top: 0.2rem; }
     
-    .quote-container { padding: 1.5rem; }
+    .quote-container { padding: 0; }
     .quote-text { font-size: 1rem; line-height: 1.4; }
     .quote-author { font-size: 1rem; margin-top: 1rem; }
     
@@ -309,7 +309,7 @@ body {
     .mondrian-grid {
         --border-width: 10px;
         grid-template-columns: 20% auto 25%;
-        grid-template-rows: 250px 200px 200px minmax(180px, auto) auto;
+        grid-template-rows: 250px 200px 200px auto auto;
         gap: var(--border-width);
         border-width: var(--border-width);
     }
@@ -318,7 +318,7 @@ body {
     .header-content p { font-size: 1.5rem; margin-top: 0.5rem; }
     .menu-box { padding: 0; }
     .menu-box li a.menu-link { font-size: 3.5rem; line-height: 1.2; }
-    .quote-container { padding: 3rem; }
+    .quote-container { padding: 0; }
     .quote-text { font-size: 1.4rem; line-height: 1.6; }
     .quote-author { font-size: 1.2rem; margin-top: 1.5rem; }
 }
@@ -328,7 +328,7 @@ body {
     .page-wrapper { max-width: 1200px; padding: 3rem; }
     .mondrian-grid {
         --border-width: 12px;
-        grid-template-rows: 350px 230px 230px minmax(200px, auto) auto;
+        grid-template-rows: 350px 230px 230px auto auto;
         gap: var(--border-width);
         border-width: var(--border-width);
     }
