@@ -141,21 +141,28 @@ document.addEventListener('DOMContentLoaded', () => {
         bgRemoveInput.addEventListener('change', async (e) => {
             if (e.target.files && e.target.files.length > 0) {
                 const file = e.target.files[0];
-                if (uploadText) uploadText.textContent = "Loading AI Models... ⏳";
-                if (uploadSubtext) uploadSubtext.textContent = "(This takes a minute on first run)";
+                if (uploadText) uploadText.textContent = "Removing Background... ✨";
+                if (uploadSubtext) uploadSubtext.textContent = "Processing " + file.name;
                 
                 try {
-                    const module = await import('https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.3/dist/index.js');
-                    const removeBackground = module.removeBackground || module.default;
+                    const formData = new FormData();
+                    formData.append('image_file', file);
+                    formData.append('size', 'auto');
                     
-                    if (uploadText) uploadText.textContent = "Removing Background... ✨";
-                    if (uploadSubtext) uploadSubtext.textContent = "Processing " + file.name;
+                    const response = await fetch('https://api.remove.bg/v1.0/removebg', {
+                        method: 'POST',
+                        headers: {
+                            'X-Api-Key': 'r6YdTAMU2pjmm6kgZXyEaY9p'
+                        },
+                        body: formData
+                    });
 
-                    const config = {
-                        publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.3/dist/'
-                    };
+                    if (!response.ok) {
+                        const errorData = await response.json().catch(() => ({}));
+                        throw new Error((errorData.errors && errorData.errors[0].title) ? errorData.errors[0].title : "API error occurred");
+                    }
 
-                    const blob = await removeBackground(file, config);
+                    const blob = await response.blob();
                     const url = URL.createObjectURL(blob);
                     
                     const resultImage = document.getElementById('result-image');
