@@ -93,6 +93,126 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // BG Remove Modal Logic
+    const bgRemoveBtn = document.getElementById('bg-remove-btn');
+    const bgRemoveModal = document.getElementById('bg-remove-modal');
+    const closeBgRemoveBtn = document.getElementById('close-bg-remove');
+
+    if (bgRemoveBtn && bgRemoveModal && closeBgRemoveBtn) {
+        bgRemoveBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            bgRemoveModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+        });
+
+        closeBgRemoveBtn.addEventListener('click', () => {
+            bgRemoveModal.classList.remove('active');
+            document.body.style.overflow = ''; 
+        });
+
+        bgRemoveModal.addEventListener('click', (e) => {
+            if (e.target === bgRemoveModal) {
+                bgRemoveModal.classList.remove('active');
+                document.body.style.overflow = ''; 
+            }
+        });
+    }
+
+    // BG Remove Tool functionality
+    const uploadBox = document.getElementById('upload-box');
+    const galleryBtn = document.getElementById('gallery-btn');
+    const cameraBtn = document.getElementById('camera-btn');
+    const bgRemoveInput = document.getElementById('bg-remove-input');
+    const uploadText = document.querySelector('.bg-remove-app .upload-text');
+    const uploadSubtext = document.querySelector('.bg-remove-app .upload-subtext');
+
+    if (uploadBox && bgRemoveInput) {
+        const triggerUpload = () => bgRemoveInput.click();
+        uploadBox.addEventListener('click', triggerUpload);
+        if (galleryBtn) galleryBtn.addEventListener('click', triggerUpload);
+        if (cameraBtn) {
+            cameraBtn.addEventListener('click', () => {
+                bgRemoveInput.setAttribute('capture', 'environment');
+                bgRemoveInput.click();
+                setTimeout(() => bgRemoveInput.removeAttribute('capture'), 500);
+            });
+        }
+
+        bgRemoveInput.addEventListener('change', async (e) => {
+            if (e.target.files && e.target.files.length > 0) {
+                const file = e.target.files[0];
+                if (uploadText) uploadText.textContent = "Loading AI Models... ⏳";
+                if (uploadSubtext) uploadSubtext.textContent = "(This takes a minute on first run)";
+                
+                try {
+                    const module = await import('https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.3/dist/index.js');
+                    const removeBackground = module.removeBackground || module.default;
+                    
+                    if (uploadText) uploadText.textContent = "Removing Background... ✨";
+                    if (uploadSubtext) uploadSubtext.textContent = "Processing " + file.name;
+
+                    const config = {
+                        publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.3/dist/'
+                    };
+
+                    const blob = await removeBackground(file, config);
+                    const url = URL.createObjectURL(blob);
+                    
+                    const resultImage = document.getElementById('result-image');
+                    const uploadContent = document.getElementById('upload-content');
+                    const mainActionBtns = document.getElementById('main-action-buttons');
+                    const resultActionBtns = document.getElementById('result-action-buttons');
+                    
+                    if(resultImage && uploadContent) {
+                        resultImage.src = url;
+                        resultImage.style.display = 'block';
+                        uploadContent.style.display = 'none';
+                        document.getElementById('upload-box').style.border = 'none';
+                        document.getElementById('upload-box').style.background = 'transparent';
+                    }
+                    if(mainActionBtns && resultActionBtns) {
+                        mainActionBtns.style.display = 'none';
+                        resultActionBtns.style.display = 'flex';
+                    }
+
+                    const downloadBtn = document.getElementById('download-btn');
+                    if(downloadBtn) {
+                        downloadBtn.onclick = () => {
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.download = 'removed_bg.png';
+                            a.click();
+                        };
+                    }
+                    
+                    const resetBtn = document.getElementById('reset-btn');
+                    if(resetBtn) {
+                        resetBtn.onclick = (ev) => {
+                            ev.stopPropagation(); // prevent clicking upload-box
+                            bgRemoveInput.value = '';
+                            resultImage.style.display = 'none';
+                            uploadContent.style.display = 'flex';
+                            uploadText.textContent = "Tap to Upload Image";
+                            uploadSubtext.textContent = "JPG, PNG, WEBP - Max 12MB";
+                            mainActionBtns.style.display = 'flex';
+                            resultActionBtns.style.display = 'none';
+                            document.getElementById('upload-box').style.border = '2px dashed #303240';
+                            document.getElementById('upload-box').style.background = '#161821';
+                        };
+                    }
+                } catch(error) {
+                    console.error("BG remove failed:", error);
+                    if (uploadText) uploadText.textContent = "Error occurred ❌";
+                    if (uploadSubtext) uploadSubtext.textContent = error.message.substring(0,40);
+                    setTimeout(() => {
+                        uploadText.textContent = "Tap to Upload Image";
+                        uploadSubtext.textContent = "JPG, PNG, WEBP - Max 12MB";
+                    }, 4000);
+                }
+            }
+        });
+    }
+
     // CONTACT Modal Logic
     const contactBtn = document.getElementById('contact-btn');
     const contactModal = document.getElementById('contact-modal');

@@ -341,3 +341,96 @@ body {
     .quote-text { font-size: 2rem; }
     .quote-author { font-size: 1.6rem; }
 }
+
+/* AI BG Remover Integrations */
+.bg-remove-wrapper {
+    padding: 0;
+    background-color: #12131A;
+    max-width: 414px;
+    box-shadow: 12px 12px 0px var(--color-black);
+}
+
+.bg-remove-wrapper .close-btn {
+    border-right: var(--border-width) solid var(--color-black);
+    border-bottom: var(--border-width) solid var(--color-black);
+}
+
+.bg-remove-app {
+    width: 100%;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-height: 85vh; 
+    overflow-y: auto;
+}
+
+.bg-remove-app .app-header {
+    display: flex; justify-content: space-between; align-items: center; padding: 24px 20px 24px 70px;
+}
+
+.bg-remove-app .logo-area { display: flex; align-items: center; gap: 12px; }
+.bg-remove-app .logo-icon {
+    width: 36px; height: 36px; background: linear-gradient(135deg, #FFB0D2 0%, #BA77F5 100%);
+    border-radius: 10px; display: flex; justify-content: center; align-items: center; color: white;
+}
+.bg-remove-app .app-title { font-size: 18px; font-weight: 700; color: #FFFFFF; font-family: 'Inter', sans-serif;}
+
+.bg-remove-app .history-btn {
+    background: #1C1E2A; border: none; width: 40px; height: 40px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center; color: #FFFFFF; cursor: pointer; transition: background 0.2s;
+}
+.bg-remove-app .history-btn:hover { background: #2A2C38; }
+
+.bg-remove-app .app-main-content { flex: 1; padding: 10px 20px 24px; display: flex; flex-direction: column; }
+
+.bg-remove-app .badge-wrapper { margin-bottom: 24px; text-align: left; }
+.bg-remove-app .ai-badge {
+    background: linear-gradient(90deg, #F375C2 0%, #FA95B9 100%); color: white; padding: 6px 14px;
+    border-radius: 20px; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center;
+    box-shadow: 0 4px 15px rgba(243, 117, 194, 0.3);
+}
+
+.bg-remove-app .hero-title {
+    font-size: 42px; line-height: 1.15; font-weight: 800; margin-top: 0; margin-bottom: 16px;
+    letter-spacing: -0.5px; text-align: left; color: #FFFFFF; font-family: 'Inter', sans-serif; text-transform: none;
+}
+.bg-remove-app .hero-subtitle {
+    color: #8B8C96; font-size: 14px; line-height: 1.5; margin-bottom: 24px; text-align: left;
+    font-family: 'Inter', sans-serif; font-weight: 400; text-transform: none;
+}
+
+.bg-remove-app .feature-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+.bg-remove-app .tag {
+    background: #1C1D26; color: #C0C3D6; padding: 8px 14px; border-radius: 10px;
+    font-size: 13px; font-weight: 500; border: 1px solid #2B2D3A;
+}
+
+.bg-remove-app .upload-area {
+    margin-top: auto; margin-bottom: 24px; border: 2px dashed #303240; border-radius: 20px;
+    padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: #161821; cursor: pointer; transition: all 0.2s;
+}
+.bg-remove-app .upload-area:hover { border-color: #F375C2; background: #191B26; }
+.bg-remove-app .upload-icon-wrapper {
+    width: 64px; height: 64px; background: linear-gradient(135deg, #F581A7 0%, #A675EB 100%);
+    border-radius: 18px; display: flex; justify-content: center; align-items: center;
+    margin-bottom: 20px; box-shadow: 0 8px 16px rgba(166, 117, 235, 0.25);
+}
+.bg-remove-app .upload-text { font-weight: 700; font-size: 17px; margin-bottom: 8px; color: #FFFFFF; }
+.bg-remove-app .upload-subtext { color: #8B8C96; font-size: 13px; font-weight: 500; margin: 0; }
+
+.bg-remove-app .action-buttons { display: flex; gap: 12px; margin-bottom: 16px; min-height: 56px;}
+.bg-remove-app .action-btn {
+    flex: 1; display: flex; justify-content: center; align-items: center; gap: 8px;
+    background: #8D76EC; color: white; border: none; padding: 18px 0; border-radius: 12px;
+    font-weight: 700; font-size: 14px; letter-spacing: 0.5px; cursor: pointer;
+    box-shadow: 0 4px 15px rgba(141, 118, 236, 0.2); transition: transform 0.2s, background 0.2s;
+    font-family: 'Inter', sans-serif;
+}
+.bg-remove-app .action-btn:hover { transform: translateY(-2px); background: #9B86FA; }
+
+@media (max-width: 767px) {
+    .bg-remove-wrapper { max-width: 90%; height: auto; }
+    .bg-remove-app .hero-title { font-size: 32px; }
+}

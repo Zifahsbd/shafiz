@@ -43,6 +43,7 @@
                 <ul>
                     <li><a href="#about" class="menu-link" id="about-btn">ABOUT</a></li>
                     <li><a href="#ai-tools" class="menu-link" id="ai-tools-btn">AI TOOLS</a></li>
+                    <li><a href="#bg-remove" class="menu-link" id="bg-remove-btn">BG REMOVE</a></li>
                     <li><a href="#contact" class="menu-link" id="contact-btn">CONTACT</a></li>
                 </ul>
             </nav>
@@ -59,7 +60,7 @@
             </div>
             
             <div id="about-en">
-                <p>Hello I'm <strong> Shafiz</strong> a technology enthusiast with a strong interest in artificial intelligence, prompt engineering, and digital innovation. I enjoy exploring how modern AI tools can be used to create powerful ideas, generate visual content, and build creative digital experiences.</p>
+                <p>Hello I'm <strong>Sayed Shafiz</strong> a technology enthusiast with a strong interest in artificial intelligence, prompt engineering, and digital innovation. I enjoy exploring how modern AI tools can be used to create powerful ideas, generate visual content, and build creative digital experiences.</p>
                 <p>My work often focuses on experimenting with AI-driven tools for image, video, and prompt generation. I like studying how prompts influence AI outputs and developing better ways to communicate ideas through technology. Learning new systems and understanding how digital tools work is something that motivates me every day.</p>
                 <p>I believe the future belongs to people who can combine creativity with technology. That’s why I continuously explore new technologies, test new tools, and improve my skills in AI-assisted content creation and digital workflows.</p>
                 <p>Through my projects and experiments, I aim to discover innovative ways to turn ideas into reality. My goal is to build useful tools, create engaging digital content, and contribute to the growing world of AI and modern technology.</p>
@@ -68,7 +69,7 @@
             </div>
 
             <div id="about-bn" style="display: none;">
-                <p>হ্যালো.. আমি <strong> শাফিজ</strong>। আমি প্রযুক্তিপ্রেমী একজন মানুষ এবং কৃত্রিম বুদ্ধিমত্তা (AI), প্রম্পট ইঞ্জিনিয়ারিং এবং ডিজিটাল উদ্ভাবনের প্রতি আমার গভীর আগ্রহ রয়েছে। আধুনিক AI টুল ব্যবহার করে নতুন ধারণা তৈরি করা, ছবি ও ভিডিওর জন্য ক্রিয়েটিভ প্রম্পট তৈরি করা এবং ডিজিটাল কনটেন্ট নিয়ে কাজ করতে আমি খুব পছন্দ করি।</p>
+                <p>হ্যালো! আমি <strong>সাইয়েদ শাফিজ</strong>। আমি প্রযুক্তিপ্রেমী একজন মানুষ এবং কৃত্রিম বুদ্ধিমত্তা (AI), প্রম্পট ইঞ্জিনিয়ারিং এবং ডিজিটাল উদ্ভাবনের প্রতি আমার গভীর আগ্রহ রয়েছে। আধুনিক AI টুল ব্যবহার করে নতুন ধারণা তৈরি করা, ছবি ও ভিডিওর জন্য ক্রিয়েটিভ প্রম্পট তৈরি করা এবং ডিজিটাল কনটেন্ট নিয়ে কাজ করতে আমি খুব পছন্দ করি।</p>
                 <p>আমি নিয়মিত নতুন প্রযুক্তি সম্পর্কে শিখতে এবং বিভিন্ন AI টুল নিয়ে পরীক্ষা-নিরীক্ষা করতে আগ্রহী। বিশেষ করে কীভাবে সঠিক প্রম্পট ব্যবহার করে AI থেকে ভালো ফলাফল পাওয়া যায়, তা নিয়ে আমি কাজ করতে ভালোবাসি। নতুন সিস্টেম বোঝা এবং প্রযুক্তির মাধ্যমে সৃজনশীল কাজ তৈরি করা আমার জন্য একটি বড় অনুপ্রেরণা।</p>
                 <p>আমি বিশ্বাস করি, প্রযুক্তি মানুষের সৃজনশীলতা এবং উদ্ভাবনকে আরও শক্তিশালী করে তোলে। তাই আমি সবসময় নতুন টুল, নতুন ধারণা এবং আধুনিক ডিজিটাল প্রযুক্তি সম্পর্কে শিখতে চেষ্টা করি।</p>
                 <p>আমার লক্ষ্য হলো প্রযুক্তি ব্যবহার করে নতুন কিছু তৈরি করা, কার্যকরী ডিজিটাল প্রজেক্ট তৈরি করা এবং AI ও প্রযুক্তির ক্রমবর্ধমান জগতে অবদান রাখা।</p>
@@ -92,7 +93,106 @@
                 Soon you will be able to access smart generators, prompt engineering tools, automation utilities, and more — all in one place.</p>
                 <p>Our goal is to make AI simple, fast, and useful for everyone.</p>
                 <p>🚧 This page is currently under development.<br>
-                Stay tuned for the launch</p>
+                Stay tuned for the launch!</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- BG Remove Pop-up Modal -->
+    <div id="bg-remove-modal" class="modal-overlay">
+        <div class="modal-content bg-remove-wrapper">
+            <button id="close-bg-remove" class="close-btn" aria-label="Close modal">X</button>
+            <div class="bg-remove-app">
+                <!-- Header -->
+                <header class="app-header">
+                    <div class="logo-area">
+                        <div class="logo-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 5v14M19 12l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                        <span class="app-title">AI BG Remover</span>
+                    </div>
+                    <button class="history-btn" aria-label="History">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 3v5h5"></path>
+                            <path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"></path>
+                            <path d="M12 7v5l4 2"></path>
+                        </svg>
+                    </button>
+                </header>
+
+                <!-- Main Content -->
+                <main class="app-main-content">
+                    <div class="badge-wrapper">
+                        <span class="ai-badge">✨ AI-Powered</span>
+                    </div>
+
+                    <h1 class="hero-title">Remove<br>Background<br>Instantly</h1>
+                    
+                    <p class="hero-subtitle">Upload any image and our AI will perfectly<br>remove the background in seconds.</p>
+
+                    <div class="feature-tags">
+                        <span class="tag">⚡ Fast</span>
+                        <span class="tag">HD Quality</span>
+                        <span class="tag">🎨 PNG Output</span>
+                        <span class="tag">🆓 Free</span>
+                    </div>
+
+                    <!-- Upload Area -->
+                    <input type="file" id="bg-remove-input" accept="image/png, image/jpeg, image/webp" style="display: none;">
+                    
+                    <div class="upload-area" id="upload-box">
+                        <div id="upload-content" style="display: flex; flex-direction: column; align-items: center;">
+                            <div class="upload-icon-wrapper">
+                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="17 8 12 3 7 8"/>
+                                    <line x1="12" y1="3" x2="12" y2="15"/>
+                                </svg>
+                            </div>
+                            <div class="upload-text">Tap to Upload Image</div>
+                            <div class="upload-subtext">JPG, PNG, WEBP - Max 12MB</div>
+                        </div>
+                        <img id="result-image" style="display: none; max-width: 100%; border-radius: 12px; max-height: 250px; object-fit: contain;">
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons" id="main-action-buttons">
+                        <button class="action-btn gallery-btn" id="gallery-btn">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                            GALLERY
+                        </button>
+                        <button class="action-btn camera-btn" id="camera-btn">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                                <circle cx="12" cy="13" r="4"/>
+                            </svg>
+                            CAMERA
+                        </button>
+                    </div>
+                    
+                    <div class="action-buttons" id="result-action-buttons" style="display: none;">
+                        <button class="action-btn" id="download-btn" style="background: linear-gradient(135deg, #F581A7 0%, #A675EB 100%);">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            DOWNLOAD
+                        </button>
+                        <button class="action-btn" id="reset-btn" style="background: #2B2D3A; max-width: 80px;">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="1 4 1 10 7 10"/>
+                                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                            </svg>
+                        </button>
+                    </div>
+                </main>
             </div>
         </div>
     </div>
